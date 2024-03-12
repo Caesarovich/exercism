@@ -5,7 +5,6 @@ func FavoriteCards() []int {
 	return []int{2, 6, 9}
 }
 
-
 func isOutOfRange(slice []int, index int) bool {
 	if index < 0 || index >= len(slice) {
 		return true
@@ -44,5 +43,5 @@ func RemoveItem(slice []int, index int) []int {
 		return slice
 	}
 
-	return append(slice[:index], slice[index + 1:]...)
+	return append(slice[:index], slice[index+1:]...)
 }

@@ -6,12 +6,12 @@ import "time"
 type WeekSchedule string
 
 const (
-	First WeekSchedule 	= "first"
-	Second WeekSchedule	= "second"
-	Third WeekSchedule = "third"
+	First  WeekSchedule = "first"
+	Second WeekSchedule = "second"
+	Third  WeekSchedule = "third"
 	Fourth WeekSchedule = "fourth"
-	Fifth WeekSchedule = "fifth"
-	Last WeekSchedule = "last"
+	Fifth  WeekSchedule = "fifth"
+	Last   WeekSchedule = "last"
 	Teenth WeekSchedule = "teenth"
 )
 
@@ -28,18 +28,18 @@ func Day(wSched WeekSchedule, wDay time.Weekday, month time.Month, year int) int
 		lastDay = i
 
 		switch {
-			case wSched == "first" && dayCount == 1: 
-				return i
-			case wSched == "second" && dayCount == 2: 
-				return i
-			case wSched == "third" && dayCount == 3: 
-				return i
-			case wSched == "fourth" && dayCount == 4: 
-				return i
-			case wSched == "fifth" && dayCount == 5: 
-				return i
-			case wSched == "teenth" && i >= 13 && i <= 19:
-				return i
+		case wSched == "first" && dayCount == 1:
+			return i
+		case wSched == "second" && dayCount == 2:
+			return i
+		case wSched == "third" && dayCount == 3:
+			return i
+		case wSched == "fourth" && dayCount == 4:
+			return i
+		case wSched == "fifth" && dayCount == 5:
+			return i
+		case wSched == "teenth" && i >= 13 && i <= 19:
+			return i
 		}
 	}
 	return lastDay

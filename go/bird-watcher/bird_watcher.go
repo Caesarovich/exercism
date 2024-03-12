@@ -6,7 +6,7 @@ func TotalBirdCount(birdsPerDay []int) int {
 	total := 0
 	sliceLen := len(birdsPerDay)
 
-	for i:= 0; i < sliceLen; i++ {
+	for i := 0; i < sliceLen; i++ {
 		total += birdsPerDay[i]
 	}
 
@@ -19,7 +19,7 @@ func BirdsInWeek(birdsPerDay []int, week int) int {
 	total := 0
 	weekIndex := (week - 1) * 7
 
-	for i := weekIndex; i < weekIndex + 7; i++ {
+	for i := weekIndex; i < weekIndex+7; i++ {
 		total += birdsPerDay[i]
 	}
 

@@ -8,12 +8,12 @@ import (
 func Application(log string) string {
 	for _, char := range log {
 		switch char {
-			case '❗':
-				return "recommendation"
-			case '🔍':
-				return "search"
-			case '☀':
-				return "weather"
+		case '❗':
+			return "recommendation"
+		case '🔍':
+			return "search"
+		case '☀':
+			return "weather"
 		}
 	}
 	return "default"

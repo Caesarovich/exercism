@@ -5,20 +5,20 @@ import (
 )
 
 var Scores = map[int][]rune{
-	1: {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T' },
-	2: {'D', 'G'},
-	3: {'B', 'C', 'M', 'P'},
-	4: {'F', 'H', 'V', 'W', 'Y'},
-	5: {'K'},
-	8: {'J', 'X'},
+	1:  {'A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'},
+	2:  {'D', 'G'},
+	3:  {'B', 'C', 'M', 'P'},
+	4:  {'F', 'H', 'V', 'W', 'Y'},
+	5:  {'K'},
+	8:  {'J', 'X'},
 	10: {'Q', 'Z'},
 }
 
 func sliceContains(s []rune, e rune) bool {
 	for _, a := range s {
-			if a == e {
-					return true
-			}
+		if a == e {
+			return true
+		}
 	}
 	return false
 }

@@ -3,16 +3,26 @@ package blackjack
 // ParseCard returns the integer value of a card following blackjack ruleset.
 func ParseCard(card string) int {
 	switch card {
-		case "ace": return 11
-		case "two": return 2
-		case "three": return 3
-		case "four": return 4
-		case "five": return 5
-		case "six": return 6
-		case "seven": return 7
-		case "eight": return 8
-		case  "nine": return 9
-		case "ten", "jack", "queen", "king": return 10
+	case "ace":
+		return 11
+	case "two":
+		return 2
+	case "three":
+		return 3
+	case "four":
+		return 4
+	case "five":
+		return 5
+	case "six":
+		return 6
+	case "seven":
+		return 7
+	case "eight":
+		return 8
+	case "nine":
+		return 9
+	case "ten", "jack", "queen", "king":
+		return 10
 	}
 	return 0
 }
@@ -23,16 +33,16 @@ func FirstTurn(card1, card2, dealerCard string) string {
 	value := ParseCard(card1) + ParseCard(card2)
 
 	switch {
-		case card1 == "ace" && card2 == "ace":
-			return "P"
-		case value == 21 && ParseCard(dealerCard) < 10:
-			return "W"
-		case value == 21,
+	case card1 == "ace" && card2 == "ace":
+		return "P"
+	case value == 21 && ParseCard(dealerCard) < 10:
+		return "W"
+	case value == 21,
 		value >= 17 && value <= 20,
 		(value >= 12 && value <= 16) && ParseCard(dealerCard) < 7:
-			return "S"
-		case ParseCard(dealerCard) >= 7, value <= 11:
-			return "H"
+		return "S"
+	case ParseCard(dealerCard) >= 7, value <= 11:
+		return "H"
 	}
 	return "S"
 }

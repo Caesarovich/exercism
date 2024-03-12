@@ -15,17 +15,17 @@ func Valid(id string) bool {
 			return false
 		}
 
-		num := int(char - '0');
+		num := int(char - '0')
 
-		if i % 2 == (len(id)) % 2  {
+		if i%2 == (len(id))%2 {
 			num *= 2
 			if num > 9 {
 				num -= 9
 			}
 		}
 
-		sum += num;
+		sum += num
 	}
 
-	return len(id) > 1 && sum % 10 == 0
+	return len(id) > 1 && sum%10 == 0
 }

@@ -6,7 +6,7 @@ import (
 
 // Schedule returns a time.Time from a string containing a date.
 func Schedule(date string) time.Time {
-	t, _:= time.Parse("1/2/2006 15:04:05", date)
+	t, _ := time.Parse("1/2/2006 15:04:05", date)
 
 	return t
 }
@@ -37,5 +37,5 @@ func AnniversaryDate() time.Time {
 	creationDate := time.Date(2012, 9, 15, 0, 0, 0, 0, time.UTC)
 	now := time.Now()
 
-	return creationDate.AddDate(now.Year() - creationDate.Year(), 0, 0)
+	return creationDate.AddDate(now.Year()-creationDate.Year(), 0, 0)
 }

@@ -9,7 +9,7 @@ import "fmt"
 
 // ShareWith should have a comment documenting it.
 func ShareWith(name string) string {
-	if name  == "" {
+	if name == "" {
 		name = "you"
 	}
 

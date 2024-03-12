@@ -5,13 +5,13 @@ import "strconv"
 func Convert(number int) string {
 	sound := ""
 
-	if number % 3 == 0 {
+	if number%3 == 0 {
 		sound += "Pling"
 	}
-	if number % 5 == 0 {
+	if number%5 == 0 {
 		sound += "Plang"
 	}
-	if number % 7 == 0 {
+	if number%7 == 0 {
 		sound += "Plong"
 	}
 

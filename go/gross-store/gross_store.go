@@ -4,11 +4,11 @@ package gross
 func Units() map[string]int {
 	return map[string]int{
 		"quarter_of_a_dozen": 3,
-		"half_of_a_dozen": 6,
-		"dozen": 12,
-		"small_gross": 120,
-		"gross": 144,
-		"great_gross": 1728,
+		"half_of_a_dozen":    6,
+		"dozen":              12,
+		"small_gross":        120,
+		"gross":              144,
+		"great_gross":        1728,
 	}
 }
 
@@ -36,11 +36,11 @@ func RemoveItem(bill, units map[string]int, item, unit string) bool {
 		return false
 	}
 
-	if itemQuantity - unitQuantity < 0 {
+	if itemQuantity-unitQuantity < 0 {
 		return false
 	}
 
-	if itemQuantity - unitQuantity == 0 {
+	if itemQuantity-unitQuantity == 0 {
 		delete(bill, item)
 	} else {
 		bill[item] -= unitQuantity

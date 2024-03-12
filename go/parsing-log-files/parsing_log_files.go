@@ -35,7 +35,7 @@ func TagWithUserName(lines []string) (taggedLines []string) {
 	re := regexp.MustCompile(`User\s+(\w+)`)
 
 	for _, line := range lines {
-		if matches := re.FindStringSubmatch(line); matches != nil  {
+		if matches := re.FindStringSubmatch(line); matches != nil {
 			taggedLines = append(taggedLines, fmt.Sprintf("[USR] %s %s", matches[1], line))
 		} else {
 			taggedLines = append(taggedLines, line)
