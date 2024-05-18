@@ -1,2 +1,4 @@
 # Ignore config files
 .exercism
+
+.dart_tool
