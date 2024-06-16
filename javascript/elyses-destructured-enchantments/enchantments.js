@@ -31,11 +31,8 @@ export function getSecondCard(deck) {
  * @returns {Card[]} new deck with reordered cards
  */
 export function swapTopTwoCards(deck) {
-  let tmp = deck[0];
-  deck[0] = deck[1];
-  deck[1] = tmp;
-
-  return deck;
+  const [first, second, ...rest] = deck;
+  return [second, first, ...rest];
 }
 
 /**
@@ -47,7 +44,8 @@ export function swapTopTwoCards(deck) {
  * deck and a new deck containing all the other cards
  */
 export function discardTopCard(deck) {
-  return [deck[0], deck.slice(1)];
+  const [top, ...rest] = deck;
+  return [top, rest];
 }
 
 /** @type {Card[]} **/
