@@ -6,5 +6,5 @@
 export const compute = (a, b) => {
   if (a.length !== b.length) throw new Error('strands must be of equal length');
 
-  return a.split('').filter((v, i) => v !== b[i]).length;
+  return [...a].reduce((acc, cur, i) => acc + (cur !== b[i]), 0);
 };
