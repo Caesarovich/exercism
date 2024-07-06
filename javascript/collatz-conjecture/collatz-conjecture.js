@@ -4,7 +4,7 @@
 //
 
 export const steps = (n) => {
-  if (n < 1) throw 'Only positive numbers are allowed';
+  if (n < 1) throw new Error('Only positive numbers are allowed');
 
   let count = 0;
 
