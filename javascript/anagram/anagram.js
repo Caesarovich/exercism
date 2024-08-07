@@ -3,29 +3,14 @@
 // convenience to get you started writing code faster.
 //
 
-function isAnagram(target, candidate) {
-  target = target.toLowerCase();
-  candidate = candidate.toLowerCase();
-
-  if (target === candidate) return false;
-
-  const candidateChars = [...candidate];
-
-  for (const char of [...target]) {
-    if (candidateChars.indexOf(char) >= 0)
-      candidateChars.splice(candidateChars.indexOf(char), 1);
-    else return false;
-  }
-
-  return candidateChars.length === 0;
-}
+// Now let's do it functionnal way :)
 
 export const findAnagrams = (target, candidates) => {
-  const anagrams = [];
-
-  for (const candidate of candidates) {
-    if (isAnagram(target, candidate)) anagrams.push(candidate);
-  }
-
-  return anagrams;
+  return candidates
+    .filter((c) => c.toLowerCase() !== target.toLowerCase())
+    .filter(
+      (c) =>
+        [...c.toLowerCase()].sort().join() ===
+        [...target.toLowerCase()].sort().join()
+    );
 };
