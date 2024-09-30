@@ -25,7 +25,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "crystal-lang.crystal-vscode",
+        "crystal-lang-tools.crystal-lang",
         "dart-code.dart-code",
         "exercism.exercism-cli",
         "dbaeumer.vscode-eslint",
