@@ -4,20 +4,20 @@
 //
 
 export function countNucleotides(strand) {
-  const nucleotideCount = {
-    A: 0,
-    C: 0,
-    G: 0,
-    T: 0,
-  };
+	const nucleotideCount = {
+		A: 0,
+		C: 0,
+		G: 0,
+		T: 0,
+	};
 
-  [...strand].forEach((v) => {
-    if (!nucleotideCount.hasOwnProperty(v))
-      throw new Error('Invalid nucleotide in strand');
-    else nucleotideCount[v]++;
-  });
+	[...strand].forEach((v) => {
+		if (!nucleotideCount.hasOwnProperty(v))
+			throw new Error("Invalid nucleotide in strand");
+		nucleotideCount[v]++;
+	});
 
-  const { A, C, G, T } = nucleotideCount;
+	const { A, C, G, T } = nucleotideCount;
 
-  return `${A} ${C} ${G} ${T}`;
+	return `${A} ${C} ${G} ${T}`;
 }

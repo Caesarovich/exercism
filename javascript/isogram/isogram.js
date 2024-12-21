@@ -4,14 +4,14 @@
 //
 
 export const isIsogram = (text) => {
-  const reg = new RegExp(/[^a-z]/gi)
-  text = text.toLowerCase().replace(reg, '')
+	const reg = new RegExp(/[^a-z]/gi);
+	text = text.toLowerCase().replace(reg, "");
 
-  for (let i = 0; i < text.length; i++) {
-    for (let j = i + 1; j < text.length; j++) {
-      if (text[i] === text[j]) return false
-    }
-  }
+	for (let i = 0; i < text.length; i++) {
+		for (let j = i + 1; j < text.length; j++) {
+			if (text[i] === text[j]) return false;
+		}
+	}
 
-  return true
+	return true;
 };

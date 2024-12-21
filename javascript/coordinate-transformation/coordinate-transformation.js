@@ -15,9 +15,7 @@
  *  translated coordinate pair in the form [x, y]
  */
 export function translate2d(dx, dy) {
-  return function (x, y) {
-    return [x + dx, y + dy];
-  };
+	return (x, y) => [x + dx, y + dy];
 }
 
 /**
@@ -31,9 +29,7 @@ export function translate2d(dx, dy) {
  *  scaled coordinate pair in the form [x, y]
  */
 export function scale2d(sx, sy) {
-  return function (x, y) {
-    return [x * sx, y * sy];
-  };
+	return (x, y) => [x * sx, y * sy];
 }
 
 /**
@@ -47,9 +43,7 @@ export function scale2d(sx, sy) {
  *  transformed coordinate pair in the form [x, y]
  */
 export function composeTransform(f, g) {
-  return function (x, y) {
-    return g(...f(x, y));
-  };
+	return (x, y) => g(...f(x, y));
 }
 
 /**
@@ -62,12 +56,14 @@ export function composeTransform(f, g) {
  *  if the arguments are the same on subsequent calls, or compute a new result if they are different.
  */
 export function memoizeTransform(f) {
-  let lastX, lastY, lastResult;
+	let lastX;
+	let lastY;
+	let lastResult;
 
-  return function (x, y) {
-    if (x === lastX && y === lastY) return lastResult;
-    lastX = x;
-    lastY = y;
-    return (lastResult = f(x, y));
-  };
+	return (x, y) => {
+		if (x === lastX && y === lastY) return lastResult;
+		lastX = x;
+		lastY = y;
+		return (lastResult = f(x, y));
+	};
 }

@@ -4,19 +4,19 @@
 //
 
 export const countWords = (phrase) => {
-  phrase = phrase.toLowerCase();
+	phrase = phrase.toLowerCase();
 
-  const filterRegex = /[^\w']/gi;
+	const filterRegex = /[^\w']/gi;
 
-  phrase = phrase.replace(filterRegex, ' ');
+	phrase = phrase.replace(filterRegex, " ");
 
-  const apostropheFilterRegex =
-    /(?<!\w)\'(?!\w)|(?<=\w)\'(?!\w)|(?<!\w)\'(?=\w)/gi;
+	const apostropheFilterRegex =
+		/(?<!\w)\'(?!\w)|(?<=\w)\'(?!\w)|(?<!\w)\'(?=\w)/gi;
 
-  phrase = phrase.replace(apostropheFilterRegex, ' ');
+	phrase = phrase.replace(apostropheFilterRegex, " ");
 
-  return phrase
-    .split(' ')
-    .filter(Boolean)
-    .reduce((acc, cur) => ({ ...acc, [cur]: ~~acc[cur] + 1 }), {});
+	return phrase
+		.split(" ")
+		.filter(Boolean)
+		.reduce((acc, cur) => ({ ...acc, [cur]: ~~acc[cur] + 1 }), {});
 };

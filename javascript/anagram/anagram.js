@@ -6,11 +6,11 @@
 // Now let's do it functionnal way :)
 
 export const findAnagrams = (target, candidates) => {
-  return candidates
-    .filter((c) => c.toLowerCase() !== target.toLowerCase())
-    .filter(
-      (c) =>
-        [...c.toLowerCase()].sort().join() ===
-        [...target.toLowerCase()].sort().join()
-    );
+	return candidates
+		.filter((c) => c.toLowerCase() !== target.toLowerCase())
+		.filter(
+			(c) =>
+				[...c.toLowerCase()].sort().join() ===
+				[...target.toLowerCase()].sort().join(),
+		);
 };

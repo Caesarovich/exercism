@@ -4,19 +4,19 @@
 //
 
 export const steps = (n) => {
-  if (n < 1) throw new Error('Only positive numbers are allowed');
+	if (n < 1) throw new Error("Only positive numbers are allowed");
 
-  let count = 0;
+	let count = 0;
 
-  while (n > 1) {
-    if (n % 2 === 0) {
-      n /= 2;
-    } else {
-      n *= 3;
-      n += 1;
-    }
-    count++;
-  }
+	while (n > 1) {
+		if (n % 2 === 0) {
+			n /= 2;
+		} else {
+			n *= 3;
+			n += 1;
+		}
+		count++;
+	}
 
-  return count;
+	return count;
 };

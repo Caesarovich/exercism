@@ -7,9 +7,9 @@
  * @returns {Record<string, number>} new score board
  */
 export function createScoreBoard() {
-  return {
-    'The Best Ever': 1000000,
-  };
+	return {
+		"The Best Ever": 1000000,
+	};
 }
 
 /**
@@ -21,9 +21,9 @@ export function createScoreBoard() {
  * @returns {Record<string, number>} updated score board
  */
 export function addPlayer(scoreBoard, player, score) {
-  scoreBoard[player] = score;
+	scoreBoard[player] = score;
 
-  return scoreBoard;
+	return scoreBoard;
 }
 
 /**
@@ -34,9 +34,9 @@ export function addPlayer(scoreBoard, player, score) {
  * @returns {Record<string, number>} updated score board
  */
 export function removePlayer(scoreBoard, player) {
-  delete scoreBoard[player];
+	delete scoreBoard[player];
 
-  return scoreBoard;
+	return scoreBoard;
 }
 
 /**
@@ -48,9 +48,9 @@ export function removePlayer(scoreBoard, player) {
  * @returns {Record<string, number>} updated score board
  */
 export function updateScore(scoreBoard, player, points) {
-  scoreBoard[player] += points;
+	scoreBoard[player] += points;
 
-  return scoreBoard;
+	return scoreBoard;
 }
 
 /**
@@ -60,11 +60,11 @@ export function updateScore(scoreBoard, player, points) {
  * @returns {Record<string, number>} updated score board
  */
 export function applyMondayBonus(scoreBoard) {
-  for (const player in scoreBoard) {
-    scoreBoard[player] += 100;
-  }
+	for (const player in scoreBoard) {
+		scoreBoard[player] += 100;
+	}
 
-  return scoreBoard;
+	return scoreBoard;
 }
 
 /**
@@ -74,7 +74,7 @@ export function applyMondayBonus(scoreBoard) {
  * @returns {number} normalized score
  */
 export function normalizeScore(params) {
-  params.score = params.normalizeFunction(params.score);
+	params.score = params.normalizeFunction(params.score);
 
-  return params.score;
+	return params.score;
 }

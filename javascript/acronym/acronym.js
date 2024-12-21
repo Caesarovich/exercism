@@ -4,10 +4,10 @@
 //
 
 export const parse = (phrase) => {
-  return phrase
-    .match(/[a-z\s-]+/gi)
-    .join('')
-    .split(/[\s-]+/gi)
-    .map((word) => word[0].toUpperCase())
-    .join('');
+	return phrase
+		.match(/[a-z\s-]+/gi)
+		.join("")
+		.split(/[\s-]+/gi)
+		.map((word) => word[0].toUpperCase())
+		.join("");
 };

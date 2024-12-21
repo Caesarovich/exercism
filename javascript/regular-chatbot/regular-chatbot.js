@@ -8,9 +8,9 @@
  */
 
 export function isValidCommand(command) {
-  const regExp = /^chatbot/i;
+	const regExp = /^chatbot/i;
 
-  return regExp.test(command);
+	return regExp.test(command);
 }
 
 /**
@@ -20,9 +20,9 @@ export function isValidCommand(command) {
  * @returns {string} The message without the emojis encryption
  */
 export function removeEmoji(message) {
-  const regExp = new RegExp(/emoji\d+/, 'gi');
+	const regExp = new RegExp(/emoji\d+/, "gi");
 
-  return message.replaceAll(regExp, '');
+	return message.replaceAll(regExp, "");
 }
 
 /**
@@ -32,11 +32,11 @@ export function removeEmoji(message) {
  * @returns {string} the Chatbot response to the phone Validation
  */
 export function checkPhoneNumber(number) {
-  const regExp = /\(\+\d{2}\) \d{3}-\d{3}-\d{3}/;
+	const regExp = /\(\+\d{2}\) \d{3}-\d{3}-\d{3}/;
 
-  return regExp.test(number)
-    ? 'Thanks! You can now download me to your phone.'
-    : `Oops, it seems like I can't reach out to ${number}`;
+	return regExp.test(number)
+		? "Thanks! You can now download me to your phone."
+		: `Oops, it seems like I can't reach out to ${number}`;
 }
 
 /**
@@ -46,9 +46,9 @@ export function checkPhoneNumber(number) {
  * @returns {string[] | null} all the possible URL's that the user may have answered
  */
 export function getURL(userInput) {
-  const regExp = /\w+\.\w+/gi;
+	const regExp = /\w+\.\w+/gi;
 
-  return userInput.match(regExp);
+	return userInput.match(regExp);
 }
 
 /**
@@ -58,9 +58,9 @@ export function getURL(userInput) {
  * @returns {string} Greeting from the chatbot
  */
 export function niceToMeetYou(fullName) {
-  const regExp = /, /g;
+	const regExp = /, /g;
 
-  const [lastName, firstName] = fullName.split(regExp);
+	const [lastName, firstName] = fullName.split(regExp);
 
-  return `Nice to meet you, ${firstName} ${lastName}`;
+	return `Nice to meet you, ${firstName} ${lastName}`;
 }

@@ -4,43 +4,43 @@
 //
 
 const colorValues = [
-  'black',
-  'brown',
-  'red',
-  'orange',
-  'yellow',
-  'green',
-  'blue',
-  'violet',
-  'grey',
-  'white',
+	"black",
+	"brown",
+	"red",
+	"orange",
+	"yellow",
+	"green",
+	"blue",
+	"violet",
+	"grey",
+	"white",
 ];
 
 function colorToValue(col) {
-  const index = colorValues.indexOf(col);
+	const index = colorValues.indexOf(col);
 
-  if (index === -1) throw new Error(/invalid color/);
+	if (index === -1) throw new Error(/invalid color/);
 
-  return index;
+	return index;
 }
 
 function toUnit(num) {
-  if (num >= 1000) return 'kiloohms';
-  return 'ohms';
+	if (num >= 1000) return "kiloohms";
+	return "ohms";
 }
 
 export class ResistorColorTrio {
-  constructor([first, second, exp]) {
-    this.value = colorToValue(first) * 10 + colorToValue(second);
+	constructor([first, second, exp]) {
+		this.value = colorToValue(first) * 10 + colorToValue(second);
 
-    this.value *= 10 ** colorToValue(exp);
+		this.value *= 10 ** colorToValue(exp);
 
-    this.unit = toUnit(this.value);
+		this.unit = toUnit(this.value);
 
-    if (this.unit === 'kiloohms') this.value /= 1000;
-  }
+		if (this.unit === "kiloohms") this.value /= 1000;
+	}
 
-  get label() {
-    return `Resistor value: ${this.value} ${this.unit}`;
-  }
+	get label() {
+		return `Resistor value: ${this.value} ${this.unit}`;
+	}
 }

@@ -9,7 +9,7 @@
  * @returns {number} the card
  */
 export function getItem(cards, position) {
-  return cards[position];
+	return cards[position];
 }
 
 /**
@@ -22,9 +22,9 @@ export function getItem(cards, position) {
  * @returns {number[]} the cards with the change applied
  */
 export function setItem(cards, position, replacementCard) {
-  cards[position] = replacementCard;
+	cards[position] = replacementCard;
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -36,9 +36,9 @@ export function setItem(cards, position, replacementCard) {
  * @returns {number[]} the cards with the newCard applied
  */
 export function insertItemAtTop(cards, newCard) {
-  cards.push(newCard);
+	cards.push(newCard);
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -50,9 +50,9 @@ export function insertItemAtTop(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItem(cards, position) {
-  cards.splice(position, 1);
+	cards.splice(position, 1);
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -63,9 +63,9 @@ export function removeItem(cards, position) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemFromTop(cards) {
-  cards.pop();
+	cards.pop();
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -77,9 +77,9 @@ export function removeItemFromTop(cards) {
  * @returns {number[]} the cards including the new card
  */
 export function insertItemAtBottom(cards, newCard) {
-  cards.unshift(newCard);
+	cards.unshift(newCard);
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -90,9 +90,9 @@ export function insertItemAtBottom(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemAtBottom(cards) {
-  cards.shift();
+	cards.shift();
 
-  return cards;
+	return cards;
 }
 
 /**
@@ -104,5 +104,5 @@ export function removeItemAtBottom(cards) {
  * @returns {boolean} true if there are exactly stackSize number of cards, false otherwise
  */
 export function checkSizeOfStack(cards, stackSize) {
-  return cards.length === stackSize;
+	return cards.length === stackSize;
 }

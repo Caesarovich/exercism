@@ -3,4 +3,4 @@
 // convenience to get you started writing code faster.
 //
 
-export const reverseString = (str) => str.split('').reverse().join('');
+export const reverseString = (str) => str.split("").reverse().join("");

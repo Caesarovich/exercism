@@ -4,13 +4,13 @@
 //
 
 export const transform = (old) => {
-  const newScores = {};
+	const newScores = {};
 
-  for (const [score, letters] of Object.entries(old)) {
-    letters.forEach((l) => {
-      newScores[l.toLowerCase()] = parseInt(score);
-    });
-  }
+	for (const [score, letters] of Object.entries(old)) {
+		letters.forEach((l) => {
+			newScores[l.toLowerCase()] = Number.parseInt(score);
+		});
+	}
 
-  return newScores;
+	return newScores;
 };

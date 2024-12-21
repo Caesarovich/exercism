@@ -4,19 +4,19 @@
 //
 
 export class Squares {
-  constructor(num) {
-    this.num = num;
-  }
+	constructor(num) {
+		this.num = num;
+	}
 
-  get sumOfSquares() {
-    return (this.num * (this.num + 1) * (2 * this.num + 1)) / 6;
-  }
+	get sumOfSquares() {
+		return (this.num * (this.num + 1) * (2 * this.num + 1)) / 6;
+	}
 
-  get squareOfSum() {
-    return ((this.num / 2) * (this.num + 1)) ** 2;
-  }
+	get squareOfSum() {
+		return ((this.num / 2) * (this.num + 1)) ** 2;
+	}
 
-  get difference() {
-    return this.squareOfSum - this.sumOfSquares;
-  }
+	get difference() {
+		return this.squareOfSum - this.sumOfSquares;
+	}
 }

@@ -2,53 +2,53 @@
 // provided as a convenience to get your started writing code faster.
 
 export class Robot {
-  #name;
+	#name;
 
-  get name() {
-    return this.#name;
-  }
+	get name() {
+		return this.#name;
+	}
 
-  constructor() {
-    this.reset();
-  }
+	constructor() {
+		this.reset();
+	}
 
-  reset() {
-    this.#name = this.generateName();
-  }
+	reset() {
+		this.#name = this.generateName();
+	}
 
-  generateName() {
-    let name;
+	generateName() {
+		let name;
 
-    do {
-      name = randomName();
-    } while (usedNames.has(name));
+		do {
+			name = randomName();
+		} while (usedNames.has(name));
 
-    usedNames.add(name);
+		usedNames.add(name);
 
-    return name;
-  }
+		return name;
+	}
 }
 
 const usedNames = new Set();
 
 Robot.releaseNames = () => {
-  usedNames.clear();
+	usedNames.clear();
 };
 
 function randomDigit() {
-  return Math.floor(Math.random() * 10).toString();
+	return Math.floor(Math.random() * 10).toString();
 }
 
 function randomLetter() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
 function randomName() {
-  return (
-    randomLetter() +
-    randomLetter() +
-    randomDigit() +
-    randomDigit() +
-    randomDigit()
-  );
+	return (
+		randomLetter() +
+		randomLetter() +
+		randomDigit() +
+		randomDigit() +
+		randomDigit()
+	);
 }

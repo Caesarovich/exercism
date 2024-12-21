@@ -4,123 +4,122 @@
 //
 
 function getColumn(grid, colIdx) {
-  const column = [];
+	const column = [];
 
-  for (let i = 0; i < 3; i++) {
-    column.push(grid[i][colIdx]);
-  }
+	for (let i = 0; i < 3; i++) {
+		column.push(grid[i][colIdx]);
+	}
 
-  return column;
+	return column;
 }
 
 function getRow(grid, rowIdx) {
-  const row = [];
+	const row = [];
 
-  for (let i = 0; i < 3; i++) {
-    row.push(grid[rowIdx][i]);
-  }
+	for (let i = 0; i < 3; i++) {
+		row.push(grid[rowIdx][i]);
+	}
 
-  return row;
+	return row;
 }
 
 function getDiagonal(grid, invert) {
-  const diagonal = [];
+	const diagonal = [];
 
-  for (let i = 0; i < 3; i++) {
-    diagonal.push(grid[i][invert ? 2 - i : i]);
-  }
+	for (let i = 0; i < 3; i++) {
+		diagonal.push(grid[i][invert ? 2 - i : i]);
+	}
 
-  return diagonal;
+	return diagonal;
 }
 
 function isFinished(grid) {
-  for (const row of grid) {
-    if (row.includes(' ')) return false;
-  }
+	for (const row of grid) {
+		if (row.includes(" ")) return false;
+	}
 
-  return true;
+	return true;
 }
 
 function getLineWinner(line) {
-  if ([...line].filter((l) => l === 'X').length === 3) return 'X';
-  if ([...line].filter((l) => l === 'O').length === 3) return 'O';
-  return null;
+	if ([...line].filter((l) => l === "X").length === 3) return "X";
+	if ([...line].filter((l) => l === "O").length === 3) return "O";
+	return null;
 }
 
 function countX(grid) {
-  let count = 0;
+	let count = 0;
 
-  for (let i = 0; i < 3; i++) {
-    const row = getRow(grid, i);
-    count += row.reduce((acc, cur) => acc + Number(cur === 'X'), 0);
-  }
+	for (let i = 0; i < 3; i++) {
+		const row = getRow(grid, i);
+		count += row.reduce((acc, cur) => acc + Number(cur === "X"), 0);
+	}
 
-  return count;
+	return count;
 }
 
 function countO(grid) {
-  let count = 0;
+	let count = 0;
 
-  for (let i = 0; i < 3; i++) {
-    const row = getRow(grid, i);
-    count += row.reduce((acc, cur) => acc + Number(cur === 'O'), 0);
-  }
+	for (let i = 0; i < 3; i++) {
+		const row = getRow(grid, i);
+		count += row.reduce((acc, cur) => acc + Number(cur === "O"), 0);
+	}
 
-  return count;
+	return count;
 }
 
 function findWinners(grid) {
-  const winners = [];
+	const winners = [];
 
-  for (let i = 0; i < 3; i++) {
-    const col = getColumn(grid, i);
-    if (getLineWinner(col)) winners.push(getLineWinner(col));
+	for (let i = 0; i < 3; i++) {
+		const col = getColumn(grid, i);
+		if (getLineWinner(col)) winners.push(getLineWinner(col));
 
-    const row = getRow(grid, i);
-    if (getLineWinner(row)) winners.push(getLineWinner(row));
-  }
+		const row = getRow(grid, i);
+		if (getLineWinner(row)) winners.push(getLineWinner(row));
+	}
 
-  if (getLineWinner(getDiagonal(grid, false)))
-    winners.push(getLineWinner(getDiagonal(grid, false)));
-  if (getLineWinner(getDiagonal(grid, true)))
-    winners.push(getLineWinner(getDiagonal(grid, true)));
+	if (getLineWinner(getDiagonal(grid, false)))
+		winners.push(getLineWinner(getDiagonal(grid, false)));
+	if (getLineWinner(getDiagonal(grid, true)))
+		winners.push(getLineWinner(getDiagonal(grid, true)));
 
-  return winners;
+	return winners;
 }
 
 function checkInvalid(board) {
-  let x = countX(board);
-  let o = countO(board);
+	const x = countX(board);
+	const o = countO(board);
 
-  if (x < o) throw new Error('Wrong turn order: O started');
-  if (x - 1 > o) throw new Error('Wrong turn order: X went twice');
-  if (findWinners(board).length === 2)
-    if (findWinners(board).at(0) !== findWinners(board).at(1))
-      throw new Error(
-        'Impossible board: game should have ended after the game was won'
-      );
+	if (x < o) throw new Error("Wrong turn order: O started");
+	if (x - 1 > o) throw new Error("Wrong turn order: X went twice");
+	if (findWinners(board).length === 2)
+		if (findWinners(board).at(0) !== findWinners(board).at(1))
+			throw new Error(
+				"Impossible board: game should have ended after the game was won",
+			);
 }
 
 export const gamestate = (board) => {
-  checkInvalid(board);
-  if (isFinished(board) && findWinners(board).length === 0) return 'draw';
+	checkInvalid(board);
+	if (isFinished(board) && findWinners(board).length === 0) return "draw";
 
-  const winner = findWinners(board).at(0);
-  if (winner) {
-    if (winner === 'X') {
-      if (countX(board) === countO(board))
-        throw new Error(
-          'Impossible board: game should have ended after the game was won'
-        );
-      return 'win';
-    } else {
-      if (countX(board) !== countO(board))
-        throw new Error(
-          'Impossible board: game should have ended after the game was won'
-        );
-      return 'win';
-    }
-  }
+	const winner = findWinners(board).at(0);
+	if (winner) {
+		if (winner === "X") {
+			if (countX(board) === countO(board))
+				throw new Error(
+					"Impossible board: game should have ended after the game was won",
+				);
+			return "win";
+		}
+		if (countX(board) !== countO(board))
+			throw new Error(
+				"Impossible board: game should have ended after the game was won",
+			);
+		return "win";
+	}
 
-  return 'ongoing';
+	return "ongoing";
 };

@@ -4,39 +4,38 @@
 //
 
 export class GradeSchool {
-  #roster = {}
+	#roster = {};
 
-  studentExists(student) {
-    for (const students of Object.values(this.#roster)) {
-      if (students.includes(student)) return true
-    }
+	studentExists(student) {
+		for (const students of Object.values(this.#roster)) {
+			if (students.includes(student)) return true;
+		}
 
-    return false
-  }
+		return false;
+	}
 
-  removeStudent(student) {
-    for (const grade of Object.keys(this.#roster)) {
-      this.#roster[grade] = this.#roster[grade].filter(s => s !== student)
-    }
-  }
+	removeStudent(student) {
+		for (const grade of Object.keys(this.#roster)) {
+			this.#roster[grade] = this.#roster[grade].filter((s) => s !== student);
+		}
+	}
 
-  roster() {
-    return structuredClone(this.#roster)
-  }
+	roster() {
+		return structuredClone(this.#roster);
+	}
 
-  add(student, grade) {
-    if (!this.#roster[grade]) this.#roster[grade] = [];
+	add(student, grade) {
+		if (!this.#roster[grade]) this.#roster[grade] = [];
 
+		if (this.studentExists(student)) return this.removeStudent(student); // Error
 
-    if (this.studentExists(student)) return this.removeStudent(student); // Error
+		this.#roster[grade].push(student);
 
-    this.#roster[grade].push(student);
+		this.#roster[grade].sort();
+	}
 
-    this.#roster[grade].sort()
-  }
-
-  grade(g) {
-    if (g) return [...this.#roster[g] ?? []] ;
-    else return this.roster()
-  }
+	grade(g) {
+		if (g) return [...(this.#roster[g] ?? [])];
+		return this.roster();
+	}
 }

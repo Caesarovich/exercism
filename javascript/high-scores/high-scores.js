@@ -4,25 +4,25 @@
 //
 
 export class HighScores {
-  #scores = [];
+	#scores = [];
 
-  constructor(scores) {
-    this.#scores = scores;
-  }
+	constructor(scores) {
+		this.#scores = scores;
+	}
 
-  get scores() {
-    return this.#scores;
-  }
+	get scores() {
+		return this.#scores;
+	}
 
-  get latest() {
-    return this.#scores.at(-1);
-  }
+	get latest() {
+		return this.#scores.at(-1);
+	}
 
-  get personalBest() {
-    return this.#scores.toSorted((a, b) => b - a).at(0);
-  }
+	get personalBest() {
+		return this.#scores.toSorted((a, b) => b - a).at(0);
+	}
 
-  get personalTopThree() {
-    return this.#scores.toSorted((a, b) => b - a).slice(0, 3);
-  }
+	get personalTopThree() {
+		return this.#scores.toSorted((a, b) => b - a).slice(0, 3);
+	}
 }

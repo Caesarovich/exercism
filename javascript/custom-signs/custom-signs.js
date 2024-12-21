@@ -14,7 +14,7 @@
  */
 
 export function buildSign(occasion, name) {
-  return `Happy ${occasion} ${name}!`;
+	return `Happy ${occasion} ${name}!`;
 }
 
 /**
@@ -26,9 +26,9 @@ export function buildSign(occasion, name) {
  */
 
 export function buildBirthdaySign(age) {
-  return `Happy Birthday! What a ${
-    age >= 50 ? 'mature' : 'young'
-  } fellow you are.`;
+	return `Happy Birthday! What a ${
+		age >= 50 ? "mature" : "young"
+	} fellow you are.`;
 }
 
 /**
@@ -41,7 +41,7 @@ export function buildBirthdaySign(age) {
  */
 
 export function graduationFor(name, year) {
-  return `Congratulations ${name}!
+	return `Congratulations ${name}!
 Class of ${year}`;
 }
 
@@ -56,5 +56,5 @@ Class of ${year}`;
  */
 
 export function costOf(sign, currency) {
-  return `Your sign costs ${(20 + sign.length * 2).toFixed(2)} ${currency}.`;
+	return `Your sign costs ${(20 + sign.length * 2).toFixed(2)} ${currency}.`;
 }

@@ -4,23 +4,23 @@
 //
 
 function findMultiples(base, max) {
-  if (base === 0) return [0];
+	if (base === 0) return [0];
 
-  const multiples = [];
+	const multiples = [];
 
-  for (let i = base; i < max; i += base) {
-    multiples.push(i);
-  }
+	for (let i = base; i < max; i += base) {
+		multiples.push(i);
+	}
 
-  return multiples;
+	return multiples;
 }
 
 export const sum = (itemsBaseValues, level) => {
-  const uniqueMultiples = new Set();
+	const uniqueMultiples = new Set();
 
-  itemsBaseValues.forEach((base) => {
-    findMultiples(base, level).forEach((a) => uniqueMultiples.add(a));
-  });
+	itemsBaseValues.forEach((base) => {
+		findMultiples(base, level).forEach((a) => uniqueMultiples.add(a));
+	});
 
-  return Array.from(uniqueMultiples).reduce((acc, cur) => acc + cur, 0);
+	return Array.from(uniqueMultiples).reduce((acc, cur) => acc + cur, 0);
 };

@@ -27,7 +27,7 @@
  * @returns {string}
  */
 export function frontDoorResponse(line) {
-  return line.trim().at(0);
+	return line.trim().at(0);
 }
 
 /**
@@ -38,7 +38,7 @@ export function frontDoorResponse(line) {
  * @returns {string} the front door password
  */
 export function frontDoorPassword(word) {
-  return word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase();
+	return word.slice(0, 1).toUpperCase() + word.slice(1).toLowerCase();
 }
 
 /**
@@ -49,7 +49,7 @@ export function frontDoorPassword(word) {
  * @returns {string}
  */
 export function backDoorResponse(line) {
-  return line.trim().at(-1);
+	return line.trim().at(-1);
 }
 
 /**
@@ -60,5 +60,5 @@ export function backDoorResponse(line) {
  * @returns {string} the back door password
  */
 export function backDoorPassword(word) {
-  return frontDoorPassword(word) + ', please';
+	return `${frontDoorPassword(word)}, please`;
 }

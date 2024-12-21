@@ -3,10 +3,10 @@
 export class ArgumentError extends Error {}
 
 export class OverheatingError extends Error {
-  constructor(temperature) {
-    super(`The temperature is ${temperature} ! Overheating !`);
-    this.temperature = temperature;
-  }
+	constructor(temperature) {
+		super(`The temperature is ${temperature} ! Overheating !`);
+		this.temperature = temperature;
+	}
 }
 
 /**
@@ -16,7 +16,7 @@ export class OverheatingError extends Error {
  * @throws {Error}
  */
 export function checkHumidityLevel(humidityPercentage) {
-  if (humidityPercentage > 70) throw new Error();
+	if (humidityPercentage > 70) throw new Error();
 }
 
 /**
@@ -26,8 +26,8 @@ export function checkHumidityLevel(humidityPercentage) {
  * @throws {ArgumentError|OverheatingError}
  */
 export function reportOverheating(temperature) {
-  if (temperature === null) throw new ArgumentError();
-  else if (temperature > 500) throw new OverheatingError(temperature);
+	if (temperature === null) throw new ArgumentError();
+	if (temperature > 500) throw new OverheatingError(temperature);
 }
 
 /**
@@ -42,13 +42,13 @@ export function reportOverheating(temperature) {
  * @throws {ArgumentError|OverheatingError|Error}
  */
 export function monitorTheMachine(actions) {
-  try {
-    actions.check();
-  } catch (err) {
-    if (err instanceof ArgumentError) actions.alertDeadSensor();
-    else if (err instanceof OverheatingError)
-      if (err.temperature > 600) actions.shutdown();
-      else actions.alertOverheating();
-    else throw err;
-  }
+	try {
+		actions.check();
+	} catch (err) {
+		if (err instanceof ArgumentError) actions.alertDeadSensor();
+		else if (err instanceof OverheatingError)
+			if (err.temperature > 600) actions.shutdown();
+			else actions.alertOverheating();
+		else throw err;
+	}
 }

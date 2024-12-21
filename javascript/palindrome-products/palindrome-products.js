@@ -6,72 +6,72 @@
 const EMPTY_RESULT = { value: null, factors: [] };
 
 function generateSmallest(min, max) {
-  const minLimit = min ** 2;
-  const maxLimit = max ** 2;
+	const minLimit = min ** 2;
+	const maxLimit = max ** 2;
 
-  for (let i = minLimit; i <= maxLimit; i++) {
-    if (isPalindrome(i)) {
-      const factors = getFactors(i, min, max);
+	for (let i = minLimit; i <= maxLimit; i++) {
+		if (isPalindrome(i)) {
+			const factors = getFactors(i, min, max);
 
-      if (factors.length > 0)
-        return {
-          value: i,
-          factors: factors,
-        };
-    }
-  }
+			if (factors.length > 0)
+				return {
+					value: i,
+					factors: factors,
+				};
+		}
+	}
 
-  return EMPTY_RESULT;
+	return EMPTY_RESULT;
 }
 
 function getFactors(num, min, max) {
-  const factors = [];
+	const factors = [];
 
-  const maxLimit = Math.min(max, Math.sqrt(num));
+	const maxLimit = Math.min(max, Math.sqrt(num));
 
-  for (let i = min; i <= maxLimit; i++) {
-    if (num % i === 0) {
-      const f = num / i;
-      if (min <= f && f <= max) factors.push([i, f]);
-    }
-  }
+	for (let i = min; i <= maxLimit; i++) {
+		if (num % i === 0) {
+			const f = num / i;
+			if (min <= f && f <= max) factors.push([i, f]);
+		}
+	}
 
-  return factors;
+	return factors;
 }
 
 function generateLargest(min, max) {
-  const minLimit = min ** 2;
-  const maxLimit = max ** 2;
+	const minLimit = min ** 2;
+	const maxLimit = max ** 2;
 
-  for (let i = maxLimit; i >= minLimit; i--) {
-    if (isPalindrome(i)) {
-      const factors = getFactors(i, min, max);
-      if (factors.length > 0)
-        return {
-          value: i,
-          factors: factors,
-        };
-    }
-  }
+	for (let i = maxLimit; i >= minLimit; i--) {
+		if (isPalindrome(i)) {
+			const factors = getFactors(i, min, max);
+			if (factors.length > 0)
+				return {
+					value: i,
+					factors: factors,
+				};
+		}
+	}
 
-  return EMPTY_RESULT;
+	return EMPTY_RESULT;
 }
 
 function isPalindrome(num) {
-  return [...String(num)].toReversed().join('') === String(num);
+	return [...String(num)].toReversed().join("") === String(num);
 }
 
 export class Palindromes {
-  static generate({ maxFactor, minFactor }) {
-    if (maxFactor < minFactor) throw new Error('min must be <= max');
+	static generate({ maxFactor, minFactor }) {
+		if (maxFactor < minFactor) throw new Error("min must be <= max");
 
-    const smallest = generateSmallest(minFactor, maxFactor);
+		const smallest = generateSmallest(minFactor, maxFactor);
 
-    const largest = generateLargest(minFactor, maxFactor);
+		const largest = generateLargest(minFactor, maxFactor);
 
-    return {
-      smallest,
-      largest,
-    };
-  }
+		return {
+			smallest,
+			largest,
+		};
+	}
 }

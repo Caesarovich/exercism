@@ -3,14 +3,14 @@
 // @ts-check
 
 const PIZZA_PRICES = {
-  Margherita: 7,
-  Caprese: 9,
-  Formaggio: 10,
+	Margherita: 7,
+	Caprese: 9,
+	Formaggio: 10,
 };
 
 const EXTRA_PRICES = {
-  ExtraSauce: 1,
-  ExtraToppings: 2,
+	ExtraSauce: 1,
+	ExtraToppings: 2,
 };
 
 /**
@@ -22,13 +22,12 @@ const EXTRA_PRICES = {
  * @returns {number} the price of the pizza
  */
 export function pizzaPrice(pizza, ...extras) {
-  if (extras.length === 0) {
-    return PIZZA_PRICES[pizza];
-  } else {
-    const extra = extras.shift();
+	if (extras.length === 0) {
+		return PIZZA_PRICES[pizza];
+	}
+	const extra = extras.shift();
 
-    return EXTRA_PRICES[extra] + pizzaPrice(pizza, ...extras);
-  }
+	return EXTRA_PRICES[extra] + pizzaPrice(pizza, ...extras);
 }
 
 /**
@@ -41,11 +40,11 @@ export function pizzaPrice(pizza, ...extras) {
  * @returns {number} the price of the total order
  */
 export function orderPrice(pizzaOrders) {
-  let price = 0;
+	let price = 0;
 
-  for (const order of pizzaOrders) {
-    price += pizzaPrice(order.pizza, ...order.extras);
-  }
+	for (const order of pizzaOrders) {
+		price += pizzaPrice(order.pizza, ...order.extras);
+	}
 
-  return price;
+	return price;
 }
