@@ -29,7 +29,8 @@
         "dart-code.dart-code",
         "exercism.exercism-cli",
         "dbaeumer.vscode-eslint",
-        "golang.go"
+        "golang.go",
+        "biomejs.biome"
       ]
     }
   }
