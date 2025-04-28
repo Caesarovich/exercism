@@ -12,7 +12,8 @@
     "files.associations": {
         "difference_of_squares.h": "c",
         "grains.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "rna_transcription.h": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
