@@ -8,5 +8,8 @@
         "scminput": false,
         "javascript": true,
         "go": false
+    },
+    "files.associations": {
+        "difference_of_squares.h": "c"
     }
 }
