@@ -16,7 +16,8 @@
         "rna_transcription.h": "c",
         "reverse_string.h": "c",
         "strings.h": "c",
-        "malloc.h": "c"
+        "malloc.h": "c",
+        "string.h": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
