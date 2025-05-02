@@ -17,7 +17,8 @@
         "reverse_string.h": "c",
         "strings.h": "c",
         "malloc.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "bob.h": "c"
     },
     "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }
