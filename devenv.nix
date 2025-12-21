@@ -5,7 +5,7 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.exercism ];
+  packages = [ pkgs.git pkgs.exercism pkgs.python313Packages.pytest ];
 
   # https://devenv.sh/languages/
   languages.javascript.enable = true;

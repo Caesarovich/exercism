@@ -9,6 +9,10 @@ node_modules
 # Ignore compiled binaries
 .out
 
+# Ignore python byte codes
+__pycache__
+*.pyc
+
 # Devenv
 .devenv*
 devenv.local.nix
