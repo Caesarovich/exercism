@@ -13,6 +13,7 @@
   languages.dart.enable = true;
   languages.crystal.enable = true;
   languages.zig.enable = true;
+  languages.python.enable = true;
 
   # https://devenv.sh/processes/
   # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
